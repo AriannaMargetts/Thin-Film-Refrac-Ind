@@ -6,11 +6,11 @@ Created on Thu Jul 20 15:53:51 2023
 """
 
 # imports
-import scipy as sp
+from scipy.optimize import curve_fit
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from scipy.optimize import curve_fit
 
 # retrieving data from csv file
 # INPUT DATA FILE NAME IN LINE BELOW
@@ -87,8 +87,8 @@ def trough_curve_fit(x, A, B, C, D):
 
 
 # finding curve fit parameters
-peakpopt, peakpcov = sp.optimize.curve_fit(peak_curve_fit, wavelength_peak_values, transmittance_peak_values)
-troughpopt, troughpcov = sp.optimize.curve_fit(trough_curve_fit, wavelength_trough_values, transmittance_trough_values)
+peakpopt, peakpcov = curve_fit(peak_curve_fit, wavelength_peak_values, transmittance_peak_values)
+troughpopt, troughpcov = curve_fit(trough_curve_fit, wavelength_trough_values, transmittance_trough_values)
 
 
 def refractive_index(x):
